@@ -36,12 +36,11 @@ const location_data = [
   },
 ];
 
+// Populate Geography options
 const geographySelect = document.getElementById("select-geography-2");
 const countrySelect = document.getElementById("select-country-2");
 const stateCitySelect = document.getElementById("state-city-2");
-const projectCards = document.querySelectorAll(".project-card-link"); // Select all project cards
 
-// Populate Geography options
 function populateGeography() {
   const geographies = [...new Set(location_data.map((item) => item.geography))];
   geographySelect.innerHTML = '<option value="">Select ...</option>'; // Clear existing options
@@ -70,7 +69,8 @@ function populateCountry() {
 function populateStateCity() {
   const selectedCountry = countrySelect.value;
   const states =
-    location_data.find((item) => item.country === selectedCountry)?.states || [];
+    location_data.find((item) => item.country === selectedCountry)?.states ||
+    [];
 
   stateCitySelect.innerHTML =
     '<option value="">Select State & City...</option>'; // Clear existing options
@@ -79,52 +79,14 @@ function populateStateCity() {
   });
 }
 
-function filterProjects() {
-  const selectedGeography = geographySelect.value;
-  const selectedCountry = countrySelect.value;
-  const selectedStateCity = stateCitySelect.value;
-
-  projectCards.forEach((card) => {
-    const projectGeography = card.querySelector(".filter-geography").textContent.trim();
-    const projectCountry = card.querySelector(".filter-country").textContent.trim();
-    const projectStateCity = card.querySelector(".filter-state-city").textContent.trim();
-
-    let isVisible = true;
-
-    if (selectedGeography && projectGeography !== selectedGeography) {
-      isVisible = false;
-    }
-
-    if (selectedCountry && projectCountry !== selectedCountry) {
-      isVisible = false;
-    }
-
-    if (selectedStateCity && projectStateCity !== selectedStateCity) {
-      isVisible = false;
-    }
-
-    card.style.display = isVisible ? "block" : "none";
-  });
-
-  // Show "No Result Found" if all projects are hidden
-  const visibleProjects = [...projectCards].some((card) => card.style.display === "block");
-  document.querySelector(".filter-no-result").style.display = visibleProjects ? "none" : "block";
-}
-
 // Event Listeners
 geographySelect.addEventListener("change", () => {
   populateCountry();
   stateCitySelect.innerHTML =
     '<option value="">Select State & City...</option>'; // Clear state & city on geography change
-  filterProjects(); // Filter projects when geography changes
 });
 
-countrySelect.addEventListener("change", () => {
-  populateStateCity();
-  filterProjects(); // Filter projects when country changes
-});
-
-stateCitySelect.addEventListener("change", filterProjects); // Filter projects when state & city changes
+countrySelect.addEventListener("change", populateStateCity);
 
 // Initial population of geography options
 populateGeography();

@@ -4,36 +4,7 @@ const location_data = [
     country: "India",
     states: ["Tamil Nadu, Chennai", "Bengaluru"],
   },
-  {
-    geography: "Asia Pacific",
-    country: "China",
-    states: ["Shanghai", "Fujian", "Beijing, Daxing"],
-  },
-  {
-    geography: "MEA (Middle East and Africa)",
-    country: "Ethiopia",
-    states: ["Oromia, Addis Ababa"],
-  },
-  {
-    geography: "MEA (Middle East and Africa)",
-    country: "Qatar",
-    states: ["Al Daayen, Lusail", "Doha"],
-  },
-  {
-    geography: "Asia Pacific",
-    country: "Singapore",
-    states: ["Singapore"],
-  },
-  {
-    geography: "MEA (Middle East and Africa)",
-    country: "United Arab Emirates",
-    states: ["Dubai"],
-  },
-  {
-    geography: "Asia Pacific",
-    country: "Vietnam",
-    states: ["Ho Chi Minh City"],
-  },
+  // ... other data
 ];
 
 // Populate Geography options
@@ -68,9 +39,7 @@ function populateCountry() {
 
 function populateStateCity() {
   const selectedCountry = countrySelect.value;
-  const states =
-    location_data.find((item) => item.country === selectedCountry)?.states ||
-    [];
+  const states = location_data.find((item) => item.country === selectedCountry)?.states || [];
 
   stateCitySelect.innerHTML =
     '<option value="">Select State & City...</option>'; // Clear existing options
@@ -88,8 +57,8 @@ geographySelect.addEventListener("change", () => {
 
 countrySelect.addEventListener("change", populateStateCity);
 
-
-document.onload = function(){
+// Ensure functions are executed only after the page is fully loaded
+window.addEventListener('load', () => {
   // Initial population of geography options
   populateGeography();
-}
+});

@@ -4,7 +4,36 @@ const location_data = [
     country: "India",
     states: ["Tamil Nadu, Chennai", "Bengaluru"],
   },
-  // ... other data
+  {
+    geography: "Asia Pacific",
+    country: "China",
+    states: ["Shanghai", "Fujian", "Beijing, Daxing"],
+  },
+  {
+    geography: "MEA (Middle East and Africa)",
+    country: "Ethiopia",
+    states: ["Oromia, Addis Ababa"],
+  },
+  {
+    geography: "MEA (Middle East and Africa)",
+    country: "Qatar",
+    states: ["Al Daayen, Lusail", "Doha"],
+  },
+  {
+    geography: "Asia Pacific",
+    country: "Singapore",
+    states: ["Singapore"],
+  },
+  {
+    geography: "MEA (Middle East and Africa)",
+    country: "United Arab Emirates",
+    states: ["Dubai"],
+  },
+  {
+    geography: "Asia Pacific",
+    country: "Vietnam",
+    states: ["Ho Chi Minh City"],
+  },
 ];
 
 // Populate Geography options
@@ -57,5 +86,6 @@ geographySelect.addEventListener("change", () => {
 
 countrySelect.addEventListener("change", populateStateCity);
 
-console.log("This is not working");
 populateGeography();
+populateCountry();
+populateStateCity();

@@ -88,5 +88,8 @@ geographySelect.addEventListener("change", () => {
 
 countrySelect.addEventListener("change", populateStateCity);
 
-// Initial population of geography options
-populateGeography();
+
+document.onload = function(){
+  // Initial population of geography options
+  populateGeography();
+}

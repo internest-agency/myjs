@@ -59,6 +59,7 @@ countrySelect.addEventListener("change", populateStateCity);
 
 // Ensure functions are executed only after the page is fully loaded
 window.addEventListener('load', () => {
+  console.log("This is not working");
   // Initial population of geography options
   populateGeography();
 });

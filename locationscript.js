@@ -3,8 +3,6 @@ const geographySelect = document.getElementById("select-geography-2");
 const countrySelect = document.getElementById("select-country-2");
 const stateCitySelect = document.getElementById("state-city-2");
 
-
-
 geographySelect.addEventListener('change', (e)=>{
   updateCountryList(e.target.value);
 });
@@ -33,12 +31,11 @@ function updateCountryList(geography){
   const projectCard = document.querySelectorAll(".project-card .project-card-title");
   const countryList = [];
   projectCard.forEach(item => {
-    if(item){
-      const currentGeography = item.querySelector('.filter-geography').innerText();
-      const currentCountry = item.querySelector('.filter-country').innerText();
-      if(currentGeography === geography && !countryList.includes(currentCountry)){
-        stateList.push(currentCountry);
-      }
+    console.log(item);
+    const currentGeography = item.querySelector('.filter-geography').innerText();
+    const currentCountry = item.querySelector('.filter-country').innerText();
+    if(currentGeography === geography && !countryList.includes(currentCountry)){
+      stateList.push(currentCountry);
     }
   });
   var optionsList = '';
@@ -52,13 +49,12 @@ function updateStateList(country){
   const projectCard = document.querySelectorAll(".project-card .project-card-title");
   const stateList = [];
   projectCard.forEach(item => {
-    if(item){
-      const currentGeography = item.querySelector('.filter-geography').innerText();
-      const currentCountry = item.querySelector('.filter-country').innerText();
-      const currentState = item.querySelector('.filter-state-city').innerText();
-      if(currentCountry === country && !stateList.includes(currentState)){
-        stateList.push(currentState);
-      }
+    console.log(item);
+    const currentGeography = item.querySelector('.filter-geography').innerText();
+    const currentCountry = item.querySelector('.filter-country').innerText();
+    const currentState = item.querySelector('.filter-state-city').innerText();
+    if(currentCountry === country && !stateList.includes(currentState)){
+      stateList.push(currentState);
     }
   });
   var optionsList = '';
@@ -69,6 +65,3 @@ function updateStateList(country){
 }
 
 updateGeography();
-
-
-

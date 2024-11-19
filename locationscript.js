@@ -5,11 +5,11 @@ const stateCitySelect = document.getElementById("state-city-2");
 
 
 
-geographySelect.addEventListener('change', ()=>{
-  updateCountryList();
+geographySelect.addEventListener('change', (e)=>{
+  updateCountryList(e.target.value);
 });
-countrySelect.addEventListener('change', ()=>{
-  updateStateList();
+countrySelect.addEventListener('change', (e)=>{
+  updateStateList(e.target.value);
 });
 
 function updateGeography(){
@@ -29,8 +29,7 @@ function updateGeography(){
   geographySelect.innerHTML = optionsList;
 }
 
-function updateCountryList(){
-  const geography = geographySelect.innerText;
+function updateCountryList(geography){
   const projectCard = document.querySelectorAll(".project-card .project-card-title");
   const countryList = [];
   projectCard.forEach(item => {
@@ -47,8 +46,7 @@ function updateCountryList(){
   countrySelect.innerHTML = optionsList;
 }
 
-function updateStateList(){
-  const country = countrySelect.innerText;
+function updateStateList(country){
   const projectCard = document.querySelectorAll(".project-card .project-card-title");
   const stateList = [];
   projectCard.forEach(item => {

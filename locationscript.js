@@ -20,7 +20,7 @@ function updateGeography(){
     }
   });
 
-  var optionsList = '';
+  var optionsList = '<option>Select Geography</option>';
   geography.forEach(item =>{
     optionsList += `<option value="${item}">${item}</option>`;
   });
@@ -32,14 +32,13 @@ function updateCountryList(){
   const projectCard = document.querySelectorAll(".project-card .project-card-title");
   const countryList = [];
   projectCard.forEach(item => {
-    console.log(item);
-    const currentGeography = item.querySelector('.filter-geography').innerText();
-    const currentCountry = item.querySelector('.filter-country').innerText();
+    const currentGeography = item.querySelector('.filter-geography')?.innerText();
+    const currentCountry = item.querySelector('.filter-country')?.innerText();
     if(currentGeography === geography && !countryList.includes(currentCountry)){
       stateList.push(currentCountry);
     }
   });
-  var optionsList = '';
+  var optionsList = '<option>Select Country</option>';
   countryList.forEach(item =>{
     optionsList += `<option value="${item}">${item}</option>`;
   });
@@ -51,15 +50,14 @@ function updateStateList(){
   const projectCard = document.querySelectorAll(".project-card .project-card-title");
   const stateList = [];
   projectCard.forEach(item => {
-    console.log(item);
-    const currentGeography = item.querySelector('.filter-geography').innerText();
-    const currentCountry = item.querySelector('.filter-country').innerText();
-    const currentState = item.querySelector('.filter-state-city').innerText();
+    const currentGeography = item.querySelector('.filter-geography')?.innerText();
+    const currentCountry = item.querySelector('.filter-country')?.innerText();
+    const currentState = item.querySelector('.filter-state-city')?.innerText();
     if(currentCountry === country && !stateList.includes(currentState)){
       stateList.push(currentState);
     }
   });
-  var optionsList = '';
+  var optionsList = '<option>Select State/City</option>';
   stateList.forEach(item =>{
     optionsList += `<option value="${item}">${item}</option>`;
   });

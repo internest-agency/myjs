@@ -32,6 +32,9 @@ function updateCountryList(){
   const projectCard = document.querySelectorAll(".project-card .project-card-title");
   const countryList = [];
   projectCard.forEach(item => {
+    if(item.innerHTML == ""){
+      return;
+    }
     const currentGeography = item.querySelector('.filter-geography').innerText();
     const currentCountry = item.querySelector('.filter-country').innerText();
     if(currentGeography === geography && !countryList.includes(currentCountry)){
@@ -50,6 +53,9 @@ function updateStateList(){
   const projectCard = document.querySelectorAll(".project-card .project-card-title");
   const stateList = [];
   projectCard.forEach(item => {
+    if(item.innerHTML == ""){
+      return;
+    }
     const currentGeography = item.querySelector('.filter-geography').innerText();
     const currentCountry = item.querySelector('.filter-country').innerText();
     const currentState = item.querySelector('.filter-state-city').innerText();

@@ -38,7 +38,7 @@ function updateCountryList(){
     const currentGeography = item.querySelector('.filter-geography').innerText;
     const currentCountry = item.querySelector('.filter-country').innerText;
     if(currentGeography === geography && !countryList.includes(currentCountry)){
-      stateList.push(currentCountry);
+      countryList.push(currentCountry);
     }
   });
   var optionsList = '<option>Select Country</option>';

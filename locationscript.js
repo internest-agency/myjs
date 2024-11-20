@@ -38,6 +38,8 @@ function updateCountryList(){
     }
     const currentGeography = item.querySelector('.filter-geography').innerText;
     const currentCountry = item.querySelector('.filter-country').innerText;
+    console.log(currentGeography);
+    console.log(currentCourntry);
     if(currentGeography === geography && !countryList.includes(currentCountry)){
       stateList.push(currentCountry);
     }
@@ -61,6 +63,9 @@ function updateStateList(){
     const currentGeography = item.querySelector('.filter-geography').innerText;
     const currentCountry = item.querySelector('.filter-country').innerText;
     const currentState = item.querySelector('.filter-state-city').innerText;
+    console.log(currentGeography);
+    console.log(currentCourntry);
+    console.log(currentState);
     if(currentCountry === country && !stateList.includes(currentState)){
       stateList.push(currentState);
     }

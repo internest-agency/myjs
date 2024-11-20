@@ -3,11 +3,11 @@ const geographySelect = document.getElementById("select-geography-2");
 const countrySelect = document.getElementById("select-country-2");
 const stateCitySelect = document.getElementById("state-city-2");
 
-geographySelect.addEventListener('change', (e)=>{
-  updateCountryList(e.target.value);
+geographySelect.addEventListener('change', ()=>{
+  updateCountryList();
 });
-countrySelect.addEventListener('change', (e)=>{
-  updateStateList(e.target.value);
+countrySelect.addEventListener('change', ()=>{
+  updateStateList();
 });
 
 function updateGeography(){
@@ -32,8 +32,8 @@ function updateCountryList(){
   const projectCard = document.querySelectorAll(".project-card .project-card-title");
   const countryList = [];
   projectCard.forEach(item => {
-    const currentGeography = item.querySelector('.filter-geography')?.innerText();
-    const currentCountry = item.querySelector('.filter-country')?.innerText();
+    const currentGeography = item.querySelector('.filter-geography').innerText();
+    const currentCountry = item.querySelector('.filter-country').innerText();
     if(currentGeography === geography && !countryList.includes(currentCountry)){
       stateList.push(currentCountry);
     }
@@ -50,9 +50,9 @@ function updateStateList(){
   const projectCard = document.querySelectorAll(".project-card .project-card-title");
   const stateList = [];
   projectCard.forEach(item => {
-    const currentGeography = item.querySelector('.filter-geography')?.innerText();
-    const currentCountry = item.querySelector('.filter-country')?.innerText();
-    const currentState = item.querySelector('.filter-state-city')?.innerText();
+    const currentGeography = item.querySelector('.filter-geography').innerText();
+    const currentCountry = item.querySelector('.filter-country').innerText();
+    const currentState = item.querySelector('.filter-state-city').innerText();
     if(currentCountry === country && !stateList.includes(currentState)){
       stateList.push(currentState);
     }

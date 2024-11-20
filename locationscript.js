@@ -35,8 +35,8 @@ function updateCountryList(){
     if(item.innerHTML == ""){
       return;
     }
-    const currentGeography = item.querySelector('.filter-geography').innerText();
-    const currentCountry = item.querySelector('.filter-country').innerText();
+    const currentGeography = item.querySelector('.filter-geography').innerText;
+    const currentCountry = item.querySelector('.filter-country').innerText;
     if(currentGeography === geography && !countryList.includes(currentCountry)){
       stateList.push(currentCountry);
     }
@@ -56,9 +56,9 @@ function updateStateList(){
     if(item.innerHTML == ""){
       return;
     }
-    const currentGeography = item.querySelector('.filter-geography').innerText();
-    const currentCountry = item.querySelector('.filter-country').innerText();
-    const currentState = item.querySelector('.filter-state-city').innerText();
+    const currentGeography = item.querySelector('.filter-geography').innerText;
+    const currentCountry = item.querySelector('.filter-country').innerText;
+    const currentState = item.querySelector('.filter-state-city').innerText;
     if(currentCountry === country && !stateList.includes(currentState)){
       stateList.push(currentState);
     }

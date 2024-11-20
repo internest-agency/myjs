@@ -31,6 +31,7 @@ function updateCountryList(){
   const geography = document.getElementById("select-geography-2").value;
   console.log(geography);
   const projectCard = document.querySelectorAll(".project-card .project-card-title");
+  console.log(projectCard);
   const countryList = [];
   projectCard.forEach(item => {
     if(item.innerHTML == ""){
@@ -56,6 +57,7 @@ function updateStateList(){
   console.log(country);
   const projectCard = document.querySelectorAll(".project-card .project-card-title");
   const stateList = [];
+  console.log(projectCard);
   projectCard.forEach(item => {
     if(item.innerHTML == ""){
       return;

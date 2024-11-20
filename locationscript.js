@@ -27,7 +27,8 @@ function updateGeography(){
   geographySelect.innerHTML = optionsList;
 }
 
-function updateCountryList(geography){
+function updateCountryList(){
+  const geography = document.getElementById("select-geography-2").innerText;
   const projectCard = document.querySelectorAll(".project-card .project-card-title");
   const countryList = [];
   projectCard.forEach(item => {
@@ -45,7 +46,8 @@ function updateCountryList(geography){
   countrySelect.innerHTML = optionsList;
 }
 
-function updateStateList(country){
+function updateStateList(){
+  const country = document.getElementById("select-country-2").innerText;
   const projectCard = document.querySelectorAll(".project-card .project-card-title");
   const stateList = [];
   projectCard.forEach(item => {

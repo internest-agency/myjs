@@ -76,6 +76,7 @@ function updateCardList(){
     const currentGeography = item.getAttribute('data-geography');
     const currentCountry = item.getAttribute('data-country');
     const currentState = item.getAttribute('data-state');
+    item.style.display = "none";
     if(geography === currentGeography && country === currentCountry && state === currentState){
       item.style.display = "block";
     }else if(geography === currentGeography && country === currentCountry && state === ""){

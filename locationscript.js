@@ -26,7 +26,7 @@ function updateGeography(){
     }
   });
 
-  var optionsList = '<option>Select Geography</option>';
+  var optionsList = '<option value>Select Geography</option>';
   geography.forEach(item =>{
     optionsList += `<option value="${item}">${item}</option>`;
   });
@@ -43,7 +43,7 @@ function updateCountryList(){
       countryList.push(currentCountry);
     }
   });
-  var optionsList = '<option>Select Country</option>';
+  var optionsList = '<option value>Select Country</option>';
   countryList.forEach(item =>{
     optionsList += `<option value="${item}">${item}</option>`;
   });
@@ -60,7 +60,7 @@ function updateStateList(){
       stateList.push(currentState);
     }
   });
-  var optionsList = '<option>Select State/City</option>';
+  var optionsList = '<option value>Select State/City</option>';
   stateList.forEach(item =>{
     optionsList += `<option value="${item}">${item}</option>`;
   });

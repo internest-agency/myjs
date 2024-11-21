@@ -2,21 +2,28 @@
 const geographySelect = document.getElementById("select-geography-2");
 const countrySelect = document.getElementById("select-country-2");
 const stateCitySelect = document.getElementById("state-city-2");
+const productCard = document.querySelectorAll('.product-card-item');
 
 geographySelect.addEventListener('change', ()=>{
   updateCountryList();
+  updateStateList();
+  updateCardList();
 });
 countrySelect.addEventListener('change', ()=>{
   updateStateList();
+  updateCardList();
+});
+stateCitySelect.addEventListener('change', ()=>{
+  updateCardList();
 });
 
 function updateGeography(){
-  // Card Details
-  const geographyList = document.querySelectorAll(".filter-geography");
+  const geography = document.getElementById("select-geography-2").value;
   const geography = [];
-  geographyList.forEach(item => {
-    if(!geography.includes(item.innerText)){
-      geography.push(item.innerText);
+  productCard.forEach(item => {
+    const currentGeography = item.getAttribute('data-geography');
+    if(!geography.includes(currentGeography)){
+      geography.push(currentGeography);
     }
   });
 
@@ -29,14 +36,10 @@ function updateGeography(){
 
 function updateCountryList(){
   const geography = document.getElementById("select-geography-2").value;
-  const projectCard = document.querySelectorAll(".project-card .project-card-title");
   const countryList = [];
-  projectCard.forEach(item => {
-    if(item.innerHTML == ""){
-      return;
-    }
-    const currentGeography = item.querySelector('.filter-geography').innerText;
-    const currentCountry = item.querySelector('.filter-country').innerText;
+  productCard.forEach(item => {
+    const currentGeography = item.getAttribute('data-geography');
+    const currentCountry = item.getAttribute('data-country');
     if(currentGeography === geography && !countryList.includes(currentCountry)){
       countryList.push(currentCountry);
     }
@@ -50,15 +53,10 @@ function updateCountryList(){
 
 function updateStateList(){
   const country = document.getElementById("select-country-2").value;
-  const projectCard = document.querySelectorAll(".project-card .project-card-title");
   const stateList = [];
-  projectCard.forEach(item => {
-    if(item.innerHTML == ""){
-      return;
-    }
-    const currentGeography = item.querySelector('.filter-geography').innerText;
-    const currentCountry = item.querySelector('.filter-country').innerText;
-    const currentState = item.querySelector('.filter-state-city').innerText;
+  productCard.forEach(item => {
+    const currentCountry = item.getAttribute('data-country');
+    const currentState = item.getAttribute('data-state');
     if(currentCountry === country && !stateList.includes(currentState)){
       stateList.push(currentState);
     }
@@ -68,6 +66,26 @@ function updateStateList(){
     optionsList += `<option value="${item}">${item}</option>`;
   });
   stateCitySelect.innerHTML = optionsList;
+}
+
+function updateCardList(){
+  const geography = document.getElementById("select-geography-2").value;
+  const country = document.getElementById("select-country-2").value;
+  const state = document.getElementById("state-city-2").value;
+  productCard.forEach(item => {
+    const currentGeography = item.getAttribute('data-geography');
+    const currentCountry = item.getAttribute('data-country');
+    const currentState = item.getAttribute('data-state');
+    if(geography === currentGeography && country === currentCountry && state === currentState){
+      item.style.display = "block";
+    }else if(geography === currentGeography && country === currentCountry && state === ""){
+      item.style.display = "block";
+    }else if(geography === currentGeography && country === "" && state === ""){
+      item.style.display = "block";
+    }else if(geography === "" && country === "" && state === ""){
+      item.style.display = "block";
+    }
+  });
 }
 
 updateGeography();

@@ -71,6 +71,9 @@ function updateCardList(){
   const geography = document.getElementById("select-geography-2").value;
   const country = document.getElementById("select-country-2").value;
   const state = document.getElementById("state-city-2").value;
+  console.log(geography);
+  console.log(country);
+  console.log(state);
   productCard.forEach(item => {
     const currentGeography = item.getAttribute('data-geography');
     const currentCountry = item.getAttribute('data-country');

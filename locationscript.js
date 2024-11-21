@@ -78,11 +78,11 @@ function updateCardList(){
     item.style.display = "none";
     if(geography === currentGeography && country === currentCountry && state === currentState){
       item.style.display = "block";
-    }else if(geography === currentGeography && country === currentCountry && state === ""){
+    }else if(geography === currentGeography && country === currentCountry && state === null){
       item.style.display = "block";
-    }else if(geography === currentGeography && country === "" && state === ""){
+    }else if(geography === currentGeography && country === null && state === null){
       item.style.display = "block";
-    }else if(geography === "" && country === "" && state === ""){
+    }else if(geography === null && country === null && state === null){
       item.style.display = "block";
     }
   });

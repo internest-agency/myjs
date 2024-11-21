@@ -18,7 +18,6 @@ stateCitySelect.addEventListener('change', ()=>{
 });
 
 function updateGeography(){
-  const geography = document.getElementById("select-geography-2").value;
   const geography = [];
   productCard.forEach(item => {
     const currentGeography = item.getAttribute('data-geography');

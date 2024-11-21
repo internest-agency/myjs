@@ -71,6 +71,7 @@ function updateCardList(){
   const geography = document.getElementById("select-geography-2").value;
   const country = document.getElementById("select-country-2").value;
   const state = document.getElementById("state-city-2").value;
+  const emptyList = document.querySelector('.filter-no-result');
   console.log(geography);
   console.log(country);
   console.log(state);
@@ -81,12 +82,18 @@ function updateCardList(){
     item.style.display = "none";
     if(geography === currentGeography && country === currentCountry && state === currentState){
       item.style.display = "block";
+      emptyList.style.display = "none";
     }else if(geography === currentGeography && country === currentCountry && state === ""){
       item.style.display = "block";
+      emptyList.style.display = "none";
     }else if(geography === currentGeography && country === "" && state === ""){
       item.style.display = "block";
+      emptyList.style.display = "none";
     }else if(geography === "" && country === "" && state === ""){
       item.style.display = "block";
+      emptyList.style.display = "none";
+    }else if(currentGeography === "" && currentCountry === "" && currentState === ""){
+      emptyList.style.display = "block";
     }
   });
 }
